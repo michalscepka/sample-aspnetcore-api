@@ -1,4 +1,8 @@
+using SampleApp.Api.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.ConfigureSerilog();
 
 // Add services to the container.
 
