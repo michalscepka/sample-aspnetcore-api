@@ -5,7 +5,8 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp.Api", "SampleApp.Api\SampleApp.Api.csproj", "{A7D88283-E48C-4A0E-AE16-517975CFC81C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Logging", "SampleApp.Logging\SampleApp.Logging.csproj", "{4B63F891-7145-41C4-A618-9952C95D91EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp.Logging", "SampleApp.Logging\SampleApp.Logging.csproj", "{4B63F891-7145-41C4-A618-9952C95D91EF}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Domain", "SampleApp.Domain\SampleApp.Domain.csproj", "{5430AA60-5F67-41D2-A547-9A18F0D78204}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Application", "SampleApp.Application\SampleApp.Application.csproj", "{16E7E1FE-AA8D-4DDB-8100-06E7CEA73F7F}"
