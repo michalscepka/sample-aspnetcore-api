@@ -2,9 +2,11 @@
 
 public class User
 {
-    public string FirstName { get; set; } = null!;
+    public required Guid Id { get; init; }
 
-    public string LastName { get; set; } = null!;
+    public required string FirstName { get; set; } = null!;
 
-    public ushort YearOfBirth { get; set; }
+    public required string LastName { get; set; } = null!;
+
+    public required ushort YearOfBirth { get; set; }
 }

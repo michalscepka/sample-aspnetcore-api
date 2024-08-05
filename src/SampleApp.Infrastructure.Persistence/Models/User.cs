@@ -6,9 +6,9 @@ namespace SampleApp.Infrastructure.Persistence.Models;
 internal class User : IEntityTypeConfiguration<Models.User>
 {
     public Guid Id { get; init; }
-    public string FirstName { get; init; } = null!;
-    public string LastName { get; init; } = null!;
-    public ushort YearOfBirth { get; init; }
+    public string FirstName { get; set; } = null!;
+    public string LastName { get; set; } = null!;
+    public ushort YearOfBirth { get; set; }
 
     public void Configure(EntityTypeBuilder<User> builder)
     {
