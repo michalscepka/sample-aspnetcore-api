@@ -12,8 +12,8 @@ public class UserService : IUserService
 
     public UserService(ILogger<UserService> logger, IUserRepository userRepository)
     {
-        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+        _logger = logger;
+        _userRepository = userRepository;
     }
 
     public async Task AddUserAsync(User user)

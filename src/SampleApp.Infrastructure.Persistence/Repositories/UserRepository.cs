@@ -33,6 +33,11 @@ internal class UserRepository : IUserRepository
 
     public async Task<IEnumerable<User>> GetAllAsync()
     {
-        return (await _context.Users.ToListAsync()).Select(u => new User { FirstName = u.FirstName, LastName = u.LastName, YearOfBirth = u.YearOfBirth });
+        return (await _context.Users.ToListAsync()).Select(u => new User
+        {
+            FirstName = u.FirstName,
+            LastName = u.LastName,
+            YearOfBirth = u.YearOfBirth
+        });
     }
 }

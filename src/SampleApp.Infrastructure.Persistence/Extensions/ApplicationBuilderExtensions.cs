@@ -6,9 +6,9 @@ namespace SampleApp.Infrastructure.Persistence.Extensions;
 
 public static class ApplicationBuilderExtensions
 {
-    public static void ApplyMigrations(this IApplicationBuilder app)
+    public static void ApplyMigrations(this IApplicationBuilder appBuilder)
     {
-        using var scope = app.ApplicationServices.CreateScope();
+        using var scope = appBuilder.ApplicationServices.CreateScope();
 
         var dbContext = scope.ServiceProvider.GetRequiredService<SampleAppDbContext>();
 
