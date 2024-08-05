@@ -13,5 +13,16 @@ public class User : IEntityTypeConfiguration<Models.User>
     public void Configure(EntityTypeBuilder<User> builder)
     {
         builder.HasKey(b => b.Id);
+        
+        builder.Property(b => b.FirstName)
+            .IsRequired()
+            .HasMaxLength(50);
+
+        builder.Property(b => b.LastName)
+            .IsRequired()
+            .HasMaxLength(50);
+
+        builder.Property(b => b.YearOfBirth)
+            .IsRequired();
     }
 }
