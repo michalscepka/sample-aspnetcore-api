@@ -20,6 +20,11 @@ public class UserService : IUserService
     {
         _logger.LogInformation("Adding user...");
         await _userRepository.AddUserAsync(user);
+    }
 
+    public async Task<IEnumerable<User>> GetAllUsersAsync()
+    {
+        _logger.LogInformation("Getting all users...");
+        return await _userRepository.GetAllAsync();
     }
 }
