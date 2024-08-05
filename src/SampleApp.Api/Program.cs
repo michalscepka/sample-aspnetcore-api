@@ -1,6 +1,6 @@
 using SampleApp.Api.Extensions;
 using SampleApp.Infrastructure.Extensions;
-using SampleApp.Infrastructure.EFCore.Extensions;
+using SampleApp.Infrastructure.Persistence.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

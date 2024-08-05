@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using SampleApp.Application.Repositories;
 using SampleApp.Domain;
 
-namespace SampleApp.Infrastructure.EFCore.Repositories;
+namespace SampleApp.Infrastructure.Persistence.Repositories;
 
 internal class UserRepository : IUserRepository
 {

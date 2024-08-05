@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace SampleApp.Infrastructure.EFCore.Models;
+namespace SampleApp.Infrastructure.Persistence.Models;
 
 public class User : IEntityTypeConfiguration<Models.User>
 {

@@ -2,22 +2,25 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SampleApp.Infrastructure.EFCore;
+using SampleApp.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace SampleApp.Infrastructure.EFCore.Migrations
+namespace SampleApp.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(SampleAppDbContext))]
-    partial class SampleAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240805004106_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
 
-            modelBuilder.Entity("SampleApp.Infrastructure.EFCore.Models.User", b =>
+            modelBuilder.Entity("SampleApp.Infrastructure.Persistence.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
