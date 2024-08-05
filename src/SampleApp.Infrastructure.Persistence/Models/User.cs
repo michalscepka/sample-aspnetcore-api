@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace SampleApp.Infrastructure.Persistence.Models;
 
-public class User : IEntityTypeConfiguration<Models.User>
+internal class User : IEntityTypeConfiguration<Models.User>
 {
     public Guid Id { get; init; }
     public string FirstName { get; init; } = null!;
