@@ -3,6 +3,7 @@ using SampleApp.Application;
 using SampleApp.Domain;
 
 namespace SampleApp.Api.Controllers;
+
 [Route("api/user")]
 [ApiController]
 public class UserController : ControllerBase
@@ -11,7 +12,7 @@ public class UserController : ControllerBase
 
     public UserController(IUserService userService)
     {
-        _userService = userService ?? throw new ArgumentNullException(nameof(userService));
+        _userService = userService;
     }
 
     [HttpPost]
@@ -23,7 +24,7 @@ public class UserController : ControllerBase
             FirstName = userDto.FirstName,
             LastName = userDto.LastName,
             YearOfBirth = userDto.YearOfBirth
-        };  // TODO: add factory/extension method
+        };
 
         await _userService.AddUserAsync(user);
 

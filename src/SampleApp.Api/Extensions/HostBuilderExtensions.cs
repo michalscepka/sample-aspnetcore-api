@@ -5,14 +5,14 @@ namespace SampleApp.Api.Extensions;
 
 internal static class HostBuilderExtensions
 {
-    public static IHostBuilder ConfigureSerilog(this IHostBuilder builder)
+    public static IHostBuilder ConfigureSerilog(this IHostBuilder hostBuilder)
     {
-        builder.ConfigureLogging((builder, logging) =>
+        hostBuilder.ConfigureLogging((builder, logging) =>
         {
             logging.ClearProviders();
             LoggerConfigurationHelper.SetupLoggerConfiguration(builder.Configuration);
         }).UseSerilog();
 
-        return builder;
+        return hostBuilder;
     }
 }

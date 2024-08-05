@@ -15,6 +15,7 @@ public static class ServiceCollectionExtensions
             var connectionString = configuration.GetConnectionString("SqliteLocal");
             opt.UseSqlite(connectionString);
         });
+
         services.AddScoped<IUserRepository, UserRepository>();
 
         return services;
