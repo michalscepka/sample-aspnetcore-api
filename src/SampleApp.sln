@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp.Application", "Sa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleApp.Infrastructure", "SampleApp.Infrastructure\SampleApp.Infrastructure.csproj", "{5B2C7501-4E8E-4F4F-95FB-121139F683F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Infrastructure.EFCore", "SampleApp.Infrastructure.EFCore\SampleApp.Infrastructure.EFCore.csproj", "{DFF821B6-2BE1-431C-9C1F-3F1230F3C866}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Infrastructure.Persistence", "SampleApp.Infrastructure.Persistence\SampleApp.Infrastructure.Persistence.csproj", "{DFF821B6-2BE1-431C-9C1F-3F1230F3C866}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,9 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SampleApp.Application.Repositories;
-using SampleApp.Infrastructure.EFCore.Repositories;
+using SampleApp.Infrastructure.Persistence.Repositories;
 
-namespace SampleApp.Infrastructure.EFCore.Extensions;
+namespace SampleApp.Infrastructure.Persistence.Extensions;
 // TODO: rename assembly from EFCore to Persistence
 
 public static class ServiceCollectionExtensions

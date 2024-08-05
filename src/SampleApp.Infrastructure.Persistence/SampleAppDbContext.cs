@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace SampleApp.Infrastructure.EFCore;
+namespace SampleApp.Infrastructure.Persistence;
 
 public class SampleAppDbContext(DbContextOptions options) : DbContext(options)
 {

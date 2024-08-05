@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SampleApp.Infrastructure.EFCore\SampleApp.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\SampleApp.Infrastructure.Persistence\SampleApp.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\SampleApp.Infrastructure\SampleApp.Infrastructure.csproj" />
     <ProjectReference Include="..\SampleApp.Logging\SampleApp.Logging.csproj" />
   </ItemGroup>

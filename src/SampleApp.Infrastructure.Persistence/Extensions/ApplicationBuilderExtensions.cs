@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SampleApp.Infrastructure.EFCore.Extensions;
+namespace SampleApp.Infrastructure.Persistence.Extensions;
 
 public static class ApplicationBuilderExtensions
 {
