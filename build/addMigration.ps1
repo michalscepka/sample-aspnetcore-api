@@ -1,6 +1,6 @@
 param(
     [string]$MigrationName,
-    [string]$ProjectPath = "..\src\SampleApp.Infrastructure.EFCore\SampleApp.Infrastructure.EFCore.csproj",
+    [string]$ProjectPath = "..\src\SampleApp.Infrastructure.Persistence\SampleApp.Infrastructure.Persistence.csproj",
     [string]$StartupProjectPath = "..\src\SampleApp.Api\SampleApp.Api.csproj"
 )
 
