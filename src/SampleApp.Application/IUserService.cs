@@ -4,6 +4,9 @@ namespace SampleApp.Application;
 
 public interface IUserService
 {
-    Task AddUserAsync(User user);
-    Task<IEnumerable<User>> GetAllUsersAsync();
+    Task AddAsync(User user);
+    Task<User?> GetByIdAsync(Guid id);
+    Task<IEnumerable<User>> GetAllAsync();
+    Task<bool> UpdateAsync(User user);
+    Task<bool> DeleteByIdAsync(Guid id);
 }
