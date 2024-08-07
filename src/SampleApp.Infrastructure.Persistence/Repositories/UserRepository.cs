@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SampleApp.Application.Repositories;
 using SampleApp.Domain;
+using SampleApp.Infrastructure.Persistence.Mappings;
 
 namespace SampleApp.Infrastructure.Persistence.Repositories;
 
@@ -16,28 +17,53 @@ internal class UserRepository : IUserRepository
         _context = context;
     }
 
-    public async Task AddUserAsync(User user)
+    public async Task AddAsync(User user)
     {
-        var userModel = new Models.User
-        {
-            Id = Guid.NewGuid(),
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            YearOfBirth = user.YearOfBirth
-        };
+        var userModel = user.ToModel();
 
         _ = await _context.Users.AddAsync(userModel);
         var entriesCount = await _context.SaveChangesAsync();
         _logger.LogInformation("Saved entries count: {entriesCount}", entriesCount.ToString());
     }
 
+    public async Task<User?> GetByIdAsync(Guid id)
+    {
+        var userModel = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
+        
+        return userModel?.ToDomain();
+    }
+
     public async Task<IEnumerable<User>> GetAllAsync()
     {
-        return (await _context.Users.ToListAsync()).Select(u => new User
-        {
-            FirstName = u.FirstName,
-            LastName = u.LastName,
-            YearOfBirth = u.YearOfBirth
-        });
+        // TODO: add pagination
+        return (await _context.Users.ToListAsync())
+            .Select(u => u.ToDomain());
+    }
+
+    public async Task<bool> UpdateAsync(User user)
+    {
+        var userModel = await _context.Users.FirstOrDefaultAsync(x => x.Id == user.Id);
+
+        if (userModel is null)
+            return false;
+
+        userModel.FirstName = user.FirstName;
+        userModel.LastName = user.LastName;
+        userModel.YearOfBirth = user.YearOfBirth;
+
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> DeleteAsync(Guid id)
+    {
+        var userModel = await _context.Users.FindAsync(id);
+
+        if (userModel is null)
+            return false;
+     
+        _context.Users.Remove(userModel);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }

@@ -16,15 +16,38 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public async Task AddUserAsync(User user)
+    public async Task AddAsync(User user)
     {
         _logger.LogInformation("Adding user...");
-        await _userRepository.AddUserAsync(user);
+
+        await _userRepository.AddAsync(user);
     }
 
-    public async Task<IEnumerable<User>> GetAllUsersAsync()
+    public async Task<User?> GetByIdAsync(Guid id)
+    {
+        _logger.LogInformation("Getting user...");
+
+        return await _userRepository.GetByIdAsync(id);
+    }
+
+    public async Task<IEnumerable<User>> GetAllAsync()
     {
         _logger.LogInformation("Getting all users...");
+        
         return await _userRepository.GetAllAsync();
+    }
+
+    public async Task<bool> UpdateAsync(User user)
+    {
+        _logger.LogInformation("Updating user...");
+
+        return await _userRepository.UpdateAsync(user);
+    }
+
+    public async Task<bool> DeleteByIdAsync(Guid id)
+    {
+        _logger.LogInformation("Deleting user...");
+
+        return await _userRepository.DeleteAsync(id);
     }
 }
