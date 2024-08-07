@@ -30,11 +30,11 @@ public class UserService : IUserService
         return await _userRepository.GetByIdAsync(id);
     }
 
-    public async Task<IEnumerable<User>> GetAllAsync()
+    public async Task<IEnumerable<User>> GetAllAsync(int pageNumber, int pageSize)
     {
         _logger.LogInformation("Getting all users...");
         
-        return await _userRepository.GetAllAsync();
+        return await _userRepository.GetAllAsync(pageNumber, pageSize);
     }
 
     public async Task<bool> UpdateAsync(User user)

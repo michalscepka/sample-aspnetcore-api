@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using SampleApp.Application.Repositories;
 using SampleApp.Domain;
+using SampleApp.Infrastructure.Persistence.Extensions;
 using SampleApp.Infrastructure.Persistence.Mappings;
 
 namespace SampleApp.Infrastructure.Persistence.Repositories;
@@ -33,11 +34,13 @@ internal class UserRepository : IUserRepository
         return userModel?.ToDomain();
     }
 
-    public async Task<IEnumerable<User>> GetAllAsync()
+    public async Task<IEnumerable<User>> GetAllAsync(int pageNumber, int pageSize)
     {
-        // TODO: add pagination
-        return (await _context.Users.ToListAsync())
-            .Select(u => u.ToDomain());
+        var usersModel = await _context.Users
+            .Paginate(pageNumber, pageSize)
+            .ToListAsync();
+
+        return usersModel.Select(u => u.ToDomain());
     }
 
     public async Task<bool> UpdateAsync(User user)
