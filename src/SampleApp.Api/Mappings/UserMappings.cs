@@ -5,7 +5,7 @@ namespace SampleApp.Api.Mappings;
 
 internal static class UserMappings
 {
-    public static User ToDomain(this UserAddRequest request) => new User
+    public static User ToDomain(this CreateUserRequest request) => new()
     {
         Id = Guid.NewGuid(),
         FirstName = request.FirstName,
@@ -13,12 +13,12 @@ internal static class UserMappings
         YearOfBirth = request.YearOfBirth
     };
 
-    public static UserAddResponse ToAddResponse(this User user) 
+    public static CreateUserResponse ToResponse(this User user) 
         => new(user.Id, user.FirstName, user.LastName, user.YearOfBirth);
 
-    public static User ToDomain(this UserUpdateRequest request) => new User
+    public static User ToDomain(this UpdateUserRequest request) => new()
     {
-        Id = request.id,
+        Id = request.Id,
         FirstName = request.FirstName,
         LastName = request.LastName,
         YearOfBirth = request.YearOfBirth

@@ -18,14 +18,14 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    [Route("add")]
-    public async Task<ActionResult> Add([FromBody] UserAddRequest request)
+    [Route("create")]
+    public async Task<ActionResult> Create([FromBody] CreateUserRequest createUserRequest)
     {
-        var user = request.ToDomain();
+        var user = createUserRequest.ToDomain();
 
-        await _userService.AddAsync(user);
+        await _userService.CreateAsync(user);
 
-        return CreatedAtAction(nameof(GetById), new { id = user.Id }, user.ToAddResponse());
+        return CreatedAtAction(nameof(GetById), new { id = user.Id }, user.ToResponse());
     }
 
     [HttpGet]
@@ -51,9 +51,9 @@ public class UserController : ControllerBase
 
     [HttpPut]
     [Route("update")]
-    public async Task<ActionResult> Update([FromBody] UserUpdateRequest request)
+    public async Task<ActionResult> Update([FromBody] UpdateUserRequest updateUserRequest)
     {
-        var user = request.ToDomain();
+        var user = updateUserRequest.ToDomain();
 
         var isUpdated = await _userService.UpdateAsync(user);
 
