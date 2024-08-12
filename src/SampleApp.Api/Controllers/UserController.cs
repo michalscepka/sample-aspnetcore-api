@@ -42,9 +42,9 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Route("getall")]
-    public async Task<ActionResult<IEnumerable<User>>> GetAll()
+    public async Task<ActionResult<IEnumerable<User>>> GetAll([FromQuery] int pageNumber, [FromQuery] int pageSize)
     {
-        var users = await _userService.GetAllAsync();
+        var users = await _userService.GetAllAsync(pageNumber, pageSize);
 
         return Ok(users);
     }
