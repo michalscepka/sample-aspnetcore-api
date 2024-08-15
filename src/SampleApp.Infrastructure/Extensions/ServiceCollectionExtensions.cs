@@ -10,11 +10,12 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
         services.AddScoped<IUserService, UserService>();
+        services.AddValidation();
 
         return services;
     }
 
-    public static IServiceCollection AddDomainValidation(this IServiceCollection services)
+    private static IServiceCollection AddValidation(this IServiceCollection services)
     {
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly(), ServiceLifetime.Scoped);
 

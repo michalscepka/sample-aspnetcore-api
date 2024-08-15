@@ -14,7 +14,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDomainValidation();
 builder.Services.AddInfrastructure();
 builder.Services.AddPersistence(builder.Configuration);
 
