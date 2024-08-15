@@ -54,7 +54,7 @@ internal class UserRepository : IUserRepository
         userModel.LastName = user.LastName;
         userModel.YearOfBirth = user.YearOfBirth;
 
-        await _context.SaveChangesAsync();
+        _ = await _context.SaveChangesAsync();
         return true;
     }
 
@@ -66,7 +66,7 @@ internal class UserRepository : IUserRepository
             return false;
      
         _context.Users.Remove(userModel);
-        await _context.SaveChangesAsync();
+        _ = await _context.SaveChangesAsync();
         return true;
     }
 }
