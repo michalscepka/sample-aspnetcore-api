@@ -1,4 +1,5 @@
 using SampleApp.Api.Extensions;
+using SampleApp.Api.Mappings;
 using SampleApp.Infrastructure.Extensions;
 using SampleApp.Infrastructure.Persistence.Extensions;
 
@@ -13,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDomainValidation();
 builder.Services.AddInfrastructure();
 builder.Services.AddPersistence(builder.Configuration);
 
@@ -30,6 +32,8 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ValidationMappingMiddleware>();
 
 app.MapControllers();
 
